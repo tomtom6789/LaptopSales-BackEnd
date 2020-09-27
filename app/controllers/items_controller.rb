@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
 
     def create
         item = Item.new(item_params)
-        # item.category_id = 1
         if item.save
             render json: ItemSerializer.new(item)
         else
@@ -23,7 +22,7 @@ class ItemsController < ApplicationController
     def destroy
         item = Item.find(params[:id])
         item.destroy
-        render json: {message: "Successfully deleted #{item.name}!"}
+        render json: {message: "Deleted #{item.name} Successfully !"}
     end
 
     def update
